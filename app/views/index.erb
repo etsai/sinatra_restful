@@ -1,0 +1,34 @@
+<div class="container">
+
+<h1>Here are your Notes</h1>
+<ul>
+<% @notes.each do |note| %>
+  <li>
+  <%= note.title %>:
+  <%= note.content %>
+  <a href='/<%= note.id %>'>[edit]</a>
+  <form action='/<%= note.id %>' method="POST">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete">
+  </form>
+  </li>
+  <% end %>
+</ul>
+</div>
+
+<div class="container">
+
+<h1>Write a note</h1>
+<form action="/note" method="POST">
+<p>Title:
+<input type="text" name="title">
+</p>
+<p>Note:
+<textarea cols='30' rows='2' name="content">This is your note</textarea>
+</p>
+<p>
+<input type="submit" value="Remember Me">
+</p>
+</form>
+
+</div>

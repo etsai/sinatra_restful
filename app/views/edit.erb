@@ -1,0 +1,10 @@
+<% if @note %>
+  <form action="/<%= @note.id %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input name="title" value='<%= @note.title %>'>
+    <textarea name="content"><%= @note.content %></textarea>
+    <input type="submit">
+  </form>
+<% else %>
+  <p>This note does not exist</p>
+<% end %>
